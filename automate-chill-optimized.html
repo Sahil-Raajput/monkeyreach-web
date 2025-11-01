@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Automate & Chill | Programmatic SEO for Growth-Driven Businesses</title>
+    <meta name="description" content="Automate & Chill helps bloggers, small businesses, and corporations integrate programmatic SEO into their organic growth strategy with no-code automation tools.">
+    <meta name="theme-color" content="#0a0a0a">
+    <style>
+        /* CSS Variables */
+        :root {
+            --primary: #FFD700;
+            --primary-dark: #E6C200;
+            --background: #0a0a0a;
+            --foreground: #f8fafc;
+            --gray-light: #1a1a1a;
+            --gray: #9ca3af;
+            --gray-dark: #d1d5db;
+            --card-bg: #0f0f0f;
+            --card-border: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Arial', sans-serif;
+            background-color: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            line-height: 1.25;
+        }
+
+        h1 { font-size: 2.25rem; line-height: 2.5rem; }
+        h2 { font-size: 1.875rem; line-height: 2.25rem; }
+        h3 { font-size: 1.5rem; line-height: 2rem; }
+
+        @media (min-width: 768px) {
+            h1 { font-size: 3rem; line-height: 1; }
+            h2 { font-size: 2.25rem; line-height: 2.5rem; }
+            h3 { font-size: 1.875rem; line-height: 2.25rem; }
+        }
+
+        @media (min-width: 1024px) {
+            h1 { font-size: 3.75rem; }
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 80rem;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 640px) {
+            .container { padding: 0 1.5rem; }
+        }
+
+        @media (min-width: 1024px) {
+            .container { padding: 0 2rem; }
+        }
+
+        /* REDUCED HEADER SIZE */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 0.75rem 0;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        header.scrolled {
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        header.at-top {
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 1.75rem;
+            width: auto;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: none;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            nav { display: flex; }
+        }
+
+        nav a {
+            color: var(--foreground);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover { color: var(--primary); }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--gray);
+            background-color: transparent;
+            color: var(--foreground);
+            padding: 0.75rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: 0.75rem;
+            padding: 1px;
+            background: linear-gradient(135deg, var(--primary), var(--primary));
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .gradient-border > div {
+            position: relative;
+            z-index: 10;
+            background-color: transparent;
+            border-radius: 0.75rem;
+            padding: 0.25rem;
+        }
+
+        .gradient-text {
+            background-image: linear-gradient(to right, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+        }
+
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            section { padding: 7rem 0; }
+        }
+
+        .hero {
+            padding-top: 6rem;
+            padding-bottom: 5rem;
+            overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding-top: 8rem;
+                padding-bottom: 8rem;
+            }
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 3rem;
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: rgba(255, 215, 0, 0.1);
+            border-radius: 9999px;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .button-group { flex-direction: row; }
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .premium-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            position: relative;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-0.25rem);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+
+        .icon-box {
+            background-color: rgba(255, 215, 0, 0.1);
+            width: 4rem;
+            height: 4rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            transition: background-color 0.3s;
+        }
+
+        .premium-card:hover .icon-box {
+            background-color: rgba(255, 215, 0, 0.2);
+        }
+
+        .icon-box svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--primary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .about-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        .about-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 0.75rem;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid transparent;
+            background-image: 
+                linear-gradient(var(--card-bg), var(--card-bg)),
+                linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.15);
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top left, rgba(255, 215, 0, 0.1), transparent 60%);
+            pointer-events: none;
+        }
+
+        .social-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-link {
+            background-color: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 9999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .social-link:hover {
+            background-color: rgba(255, 215, 0, 0.2);
+            transform: scale(1.1);
+        }
+
+        .service-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-0.25rem);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 1024px) {
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        .contact-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            padding: 2.5rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .contact-label {
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .contact-value {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-value:hover {
+            color: var(--primary-dark);
+        }
+
+        .contact-message {
+            color: var(--gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* NEW FOOTER LAYOUT */
+        footer {
+            background-color: var(--background);
+            padding: 4rem 0 1.5rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1.5fr 1.5fr;
+            }
+        }
+
+        .footer-brand {
+            max-width: 400px;
+        }
+
+        .footer-brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand-logo img {
+            height: 2rem;
+            width: auto;
+        }
+
+        .footer-brand-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--foreground);
+        }
+
+        .footer-brand-subtitle {
+            color: var(--gray);
+            font-size: 0.75rem;
+            margin-top: 0.25rem;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-top: 1rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section a {
+            color: var(--foreground);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            color: var(--foreground);
+            font-size: 0.95rem;
+        }
+
+        .footer-contact-item a {
+            color: var(--foreground);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--primary);
+        }
+
+        .footer-contact-icon {
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .bg-effect {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(64px);
+            opacity: 0.7;
+            pointer-events: none;
+        }
+
+        .bg-gray-section {
+            background-color: var(--gray-light);
+        }
+
+        .text-center { text-align: center; }
+        .max-w-3xl { max-width: 48rem; }
+        .max-w-xl { max-width: 36rem; }
+        .mx-auto { margin-left: auto; margin-right: auto; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+        .mb-16 { margin-bottom: 4rem; }
+        .mt-10 { margin-top: 2.5rem; }
+        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        .leading-relaxed { line-height: 1.625; }
+        .relative { position: relative; }
+        .overflow-hidden { overflow: hidden; }
+
+        .service-card h3 { color: var(--foreground); }
+        .service-card p { color: var(--foreground); margin-bottom: 1.5rem; }
+        .service-item {
+            color: var(--foreground);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .service-item::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .service-link:hover {
+            color: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#"><img src="MonkyReach-Header-Logo.avif" alt="A&C" style="height: 1.75rem; width: auto;"></a>
+            </div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#services">Services</a>
+                <a href="#tools">Tools</a>
+                <a href="#blog">Blog</a>
+                <a href="#case-studies">Case Studies</a>
+                <div class="gradient-border">
+                    <div>
+                        <a href="#contact" class="btn-primary">Get Started</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="bg-effect" style="top: 0; right: 0; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);"></div>
+        <div class="bg-effect" style="bottom: 0; left: 0; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);"></div>
+        <div class="container">
+            <div class="hero-grid">
+                <div>
+                    <div class="badge">Programmatic SEO Experts</div>
+                    <h1>
+                        <span class="gradient-text">Automate & Chill:</span><br>
+                        <span>Programmatic SEO for Growth-Driven Businesses</span>
+                    </h1>
+                    <p class="text-lg mb-8 max-w-xl" style="margin-top: 1.5rem;">
+                        Automate & Chill helps bloggers, small businesses, and corporations integrate programmatic SEO into their organic growth strategy with no-code automation tools.
+                    </p>
+                    <div class="button-group">
+                        <div class="gradient-border">
+                            <div>
+                                <a href="#contact" class="btn-primary">Get Started</a>
+                            </div>
+                        </div>
+                        <a href="#tools" class="btn-outline">Explore Tools</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="gradient-border" style="padding: 2px;">
+                        <div style="padding: 1.5rem; background-color: var(--card-bg); border-radius: 0.75rem;">
+                            <img src="MonkeyReach-Hero-Image-final.avif" alt="Programmatic SEO Dashboard" style="width: 100%; border-radius: 0.5rem; aspect-ratio: 1/1;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="bg-gray-section">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="badge">Why Choose Us</div>
+                <h2 class="mb-6">Why Choose Programmatic SEO?</h2>
+                <p class="text-lg">Scale your organic traffic with data-driven content that targets thousands of high-intent keywords.</p>
+            </div>
+            <div class="card-grid">
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Exponential Content Scaling</h3>
+                    <p>Deploy thousands of hyper-targeted pages that capture long-tail keywords with precision and authority.</p>
+                </div>
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">AI-Powered Automation</h3>
+                    <p>Leverage enterprise-grade AI to generate consistently high-quality content at unprecedented scale.</p>
+                </div>
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Search Intent Mapping</h3>
+                    <p>Capture every variation of user intent with content perfectly matched to search queries.</p>
+                </div>
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Conversion-Focused Architecture</h3>
+                    <p>Every page is engineered to convert visitors with strategic CTAs and conversion paths.</p>
+                </div>
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Algorithm-Proof Strategy</h3>
+                    <p>Future-proof your SEO with content that adheres to Google's E-E-A-T principles.</p>
+                </div>
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Performance Optimization</h3>
+                    <p>Enterprise-grade templates optimized for Core Web Vitals and technical SEO excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative overflow-hidden">
+        <div class="bg-effect" style="top: 0; right: 0; width: 33%; height: 33%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);"></div>
+        <div class="bg-effect" style="bottom: 0; left: 0; width: 33%; height: 33%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);"></div>
+
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="badge">About Us</div>
+                <h2 class="mb-6">The Story Behind <span class="gradient-text">Automate & Chill</span></h2>
+                <p class="text-lg mb-8">From blogger to web developer, our journey in creating innovative solutions for programmatic SEO.</p>
+            </div>
+
+            <div class="about-grid">
+                <div>
+                    <div class="about-card">
+                        <div style="position: relative; z-index: 1;">
+                            <h3 class="mb-4" style="font-size: 1.5rem; color: var(--foreground);">Abhishek Sood</h3>
+                            <div class="space-y-6">
+                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">I'm Abhishek Sood, the mind behind Automate & Chill. As a Local SEO and Lead Generation expert, I specialize in building scalable websites, programmatic SEO strategies, and AI-powered automation that drive real results.</p>
+                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">After years in content creation and SEO, I identified a gap for no-code automation tools specifically designed for bloggers and small business owners looking to implement programmatic SEO strategies.</p>
+                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">If you're ready to leverage automation and AI to scale your business, subscribe to Automate & Chill and be part of a community that thrives on efficiency and innovation!</p>
+                            </div>
+                            <div class="mt-10">
+                                <h4 style="color: var(--gray); font-size: 0.875rem; font-weight: 500; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">CONNECT WITH ABHISHEK</h4>
+                                <div class="social-links">
+                                    <a href="https://facebook.com" class="social-link" aria-label="Facebook" title="Facebook">f</a>
+                                    <a href="https://twitter.com" class="social-link" aria-label="Twitter" title="Twitter">𝕏</a>
+                                    <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" title="LinkedIn">in</a>
+                                    <a href="https://github.com" class="social-link" aria-label="GitHub" title="GitHub">⚡</a>
+                                    <a href="https://youtube.com" class="social-link" aria-label="YouTube" title="YouTube">▶</a>
+                                    <a href="https://instagram.com" class="social-link" aria-label="Instagram" title="Instagram">📷</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img loading="lazy" src="Sahil Raajput.avif" alt="Abhishek Sood" style="width: 100%; border-radius: 0.75rem; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); aspect-ratio: 1/1;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="bg-gray-section">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="badge">Our Services</div>
+                <h2 class="mb-6">Our Expertise</h2>
+                <p class="text-lg">We help businesses of all sizes implement programmatic SEO strategies that drive organic growth.</p>
+            </div>
+            <div class="card-grid">
+                <div class="service-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                        </svg>
+                    </div>
+                    <h3 class="mb-4">For Content Publishers</h3>
+                    <p class="mb-4">Scale your content production exponentially with our enterprise-grade automation platform.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <div class="service-item">Automated content generation at scale</div>
+                        <div class="service-item">Data-driven keyword research</div>
+                        <div class="service-item">Content optimization for search intent</div>
+                    </div>
+                    <a href="#" class="service-link">Scale Your Content →</a>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="mb-4">For Multi-Location Businesses</h3>
+                    <p class="mb-4">Dominate local search with our geo-targeted programmatic SEO solution.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <div class="service-item">Location-specific landing pages</div>
+                        <div class="service-item">Local keyword optimization</div>
+                        <div class="service-item">Google Business Profile integration</div>
+                    </div>
+                    <a href="#" class="service-link">Dominate Local Search →</a>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
+                    <h3 class="mb-4">For Enterprise Corporations</h3>
+                    <p class="mb-4">Implement cross-department programmatic SEO strategies with our enterprise platform.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
+                        <div class="service-item">Cross-domain content strategy</div>
+                        <div class="service-item">Enterprise-level analytics</div>
+                        <div class="service-item">Custom integration capabilities</div>
+                    </div>
+                    <a href="#" class="service-link">Enterprise Solutions →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="badge">Contact Us</div>
+                <h2 class="mb-6">Get in Touch</h2>
+                <p class="text-lg">Have questions about our programmatic SEO services? Ready to scale your content strategy? Let's talk!</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-box">
+                    <h3 class="mb-8">Contact Information</h3>
+                    <p class="contact-message">Connect with us directly using the information below. We're here to help you scale your SEO strategy.</p>
+
+                    <div class="contact-item">
+                        <div class="contact-label">Email</div>
+                        <a href="mailto:hello@a8c.in" class="contact-value">hello@a8c.in</a>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-label">Phone</div>
+                        <a href="tel:+919896056579" class="contact-value">+91 98960 56579</a>
+                    </div>
+                </div>
+
+                <div class="contact-box">
+                    <h3 class="mb-8">Additional Information</h3>
+                    <p class="contact-message">We're a team of programmatic SEO experts dedicated to helping businesses automate their growth strategy and scale organic traffic efficiently.</p>
+
+                    <div class="contact-item">
+                        <div class="contact-label">Website</div>
+                        <a href="https://a8c.in" class="contact-value">a8c.in</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-brand-logo">
+                        <img src="Monkey-Reach-Site-Icon.avif" alt="A&C" style="height: 2rem; width: auto;">
+                        <div>
+                            <div class="footer-brand-title">MonkeyReach</div>
+                            <div class="footer-brand-subtitle">Reach Your Niche Like a Monkey</div>
+                        </div>
+                    </div>
+                    <p>Helping bloggers, small businesses, and corporations integrate programmatic SEO into their organic growth strategy.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#tools">Tools</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#case-studies">Case Studies</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <div class="footer-contact-item">
+                        <span class="footer-contact-icon">✉</span>
+                        <a href="mailto:hello@a8c.in">contact@monkeyreach.com</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <span class="footer-contact-icon">🌐</span>
+                        <a href="https:www.monkeyreach.com">a8c.in</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Automate & Chill by Abhishek Sood. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            if (scrollTop > 100) {
+                header.classList.remove('at-top');
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+                header.classList.add('at-top');
+            }
+        });
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.add('at-top');
+        }
+    </script>
+</body>
+</html>
