@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MonkeyReach | SEO & SMO for Growth-Driven Businesses</title>
-    <meta name="description" content="Monkey Reach helps small businesses, and corporations integrate SEO into their organic growth strategy with no-code automation tools.">
+    <title>MonkeyReach | No. 1 SEM & SMM Solutions </title>
+    <meta name="description"
+        content="MonkeyReach helps small businesses, brands, service providers and corporations certified Search Engine Marketing & Social Media Marketing.">
     <meta name="theme-color" content="#0a0a0a">
     <style>
-        /* CSS Variables */
         :root {
             --primary: #FFD700;
             --primary-dark: #E6C200;
@@ -16,7 +17,6 @@
             --foreground: #f8fafc;
             --gray-light: #1a1a1a;
             --gray: #9ca3af;
-            --gray-dark: #d1d5db;
             --card-bg: #0f0f0f;
             --card-border: #1a1a1a;
         }
@@ -39,24 +39,53 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        h1, h2, h3, h4, h5, h6 {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
             font-weight: 700;
             letter-spacing: -0.025em;
             line-height: 1.25;
         }
 
-        h1 { font-size: 2.25rem; line-height: 2.5rem; }
-        h2 { font-size: 1.875rem; line-height: 2.25rem; }
-        h3 { font-size: 1.5rem; line-height: 2rem; }
+        h1 {
+            font-size: 2rem;
+            line-height: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            line-height: 2.25rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            line-height: 2rem;
+        }
 
         @media (min-width: 768px) {
-            h1 { font-size: 3rem; line-height: 1; }
-            h2 { font-size: 2.25rem; line-height: 2.5rem; }
-            h3 { font-size: 1.875rem; line-height: 2.25rem; }
+            h1 {
+                font-size: 3rem;
+                line-height: 1;
+            }
+
+            h2 {
+                font-size: 2rem;
+                line-height: 2.5rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                line-height: 2.25rem;
+            }
         }
 
         @media (min-width: 1024px) {
-            h1 { font-size: 3.75rem; }
+            h1 {
+                font-size: 3.75rem;
+            }
         }
 
         .container {
@@ -66,14 +95,18 @@
         }
 
         @media (min-width: 640px) {
-            .container { padding: 0 1.5rem; }
+            .container {
+                padding: 0 1.5rem;
+            }
         }
 
         @media (min-width: 1024px) {
-            .container { padding: 0 2rem; }
+            .container {
+                padding: 0 2rem;
+            }
         }
 
-        /* REDUCED HEADER SIZE */
+        /* HEADER */
         header {
             position: fixed;
             top: 0;
@@ -94,11 +127,6 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
-        header.at-top {
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
         header .container {
             display: flex;
             justify-content: space-between;
@@ -111,6 +139,7 @@
             transition: all 0.3s ease;
         }
 
+        /* DESKTOP NAV */
         nav {
             display: none;
             align-items: center;
@@ -118,7 +147,9 @@
         }
 
         @media (min-width: 768px) {
-            nav { display: flex; }
+            nav {
+                display: flex;
+            }
         }
 
         nav a {
@@ -129,8 +160,122 @@
             transition: color 0.3s ease;
         }
 
-        nav a:hover { color: var(--primary); }
+        nav a:hover {
+            color: var(--primary);
+        }
 
+        /* MOBILE MENU BUTTON */
+        .mobile-menu-btn {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 51;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        .mobile-menu-btn span {
+            width: 1.5rem;
+            height: 2px;
+            background-color: var(--foreground);
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(0.5rem, 0.5rem);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(0.5rem, -0.5rem);
+        }
+
+        /* MOBILE NAV */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            flex-direction: column;
+            gap: 0;
+            padding: 1rem 0;
+            animation: slideDown 0.3s ease;
+            z-index: 40;
+        }
+
+        .mobile-nav.active {
+            display: flex;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (min-width: 768px) {
+            .mobile-nav {
+                display: none !important;
+            }
+        }
+
+        .mobile-nav a {
+            color: var(--foreground);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+
+        .mobile-nav a:hover {
+            background-color: rgba(255, 215, 0, 0.1);
+            border-left-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .mobile-nav-btn {
+            background-color: var(--primary);
+            color: var(--background);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin: 1rem 1.5rem 0;
+            text-align: center;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-nav-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* BUTTONS */
         .btn-primary {
             background-color: var(--primary);
             color: var(--background);
@@ -169,6 +314,7 @@
             color: var(--primary);
         }
 
+        /* GRADIENT EFFECTS */
         .gradient-border {
             position: relative;
             border-radius: 0.75rem;
@@ -177,7 +323,7 @@
             animation: glow 2s ease-in-out infinite alternate;
         }
 
-        .gradient-border > div {
+        .gradient-border>div {
             position: relative;
             z-index: 10;
             background-color: transparent;
@@ -193,17 +339,25 @@
         }
 
         @keyframes glow {
-            0% { box-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
-            100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.8); }
+            0% {
+                box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+            }
+
+            100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            }
         }
 
+        /* SECTIONS */
         section {
             padding: 5rem 0;
             position: relative;
         }
 
         @media (min-width: 768px) {
-            section { padding: 7rem 0; }
+            section {
+                padding: 7rem 0;
+            }
         }
 
         .hero {
@@ -252,7 +406,9 @@
         }
 
         @media (min-width: 640px) {
-            .button-group { flex-direction: row; }
+            .button-group {
+                flex-direction: row;
+            }
         }
 
         .card-grid {
@@ -262,11 +418,15 @@
         }
 
         @media (min-width: 768px) {
-            .card-grid { grid-template-columns: repeat(2, 1fr); }
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (min-width: 1024px) {
-            .card-grid { grid-template-columns: repeat(3, 1fr); }
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
         .premium-card {
@@ -314,7 +474,9 @@
         }
 
         @media (min-width: 1024px) {
-            .about-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .about-card {
@@ -324,7 +486,7 @@
             position: relative;
             overflow: hidden;
             border: 2px solid transparent;
-            background-image: 
+            background-image:
                 linear-gradient(var(--card-bg), var(--card-bg)),
                 linear-gradient(135deg, var(--primary), var(--primary-dark));
             background-origin: border-box;
@@ -382,6 +544,45 @@
             transform: translateY(-0.25rem);
         }
 
+        .service-card h3 {
+            color: var(--foreground);
+        }
+
+        .service-card p {
+            color: var(--foreground);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-item {
+            color: var(--foreground);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .service-item::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .service-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+            margin-top: 1.5rem;
+        }
+
+        .service-link:hover {
+            color: var(--primary-dark);
+        }
+
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -389,7 +590,9 @@
         }
 
         @media (min-width: 1024px) {
-            .contact-grid { grid-template-columns: 1fr 1fr; }
+            .contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         .contact-box {
@@ -401,10 +604,6 @@
 
         .contact-item {
             margin-bottom: 2.5rem;
-        }
-
-        .contact-item:last-child {
-            margin-bottom: 0;
         }
 
         .contact-label {
@@ -435,7 +634,7 @@
             line-height: 1.8;
         }
 
-        /* NEW FOOTER LAYOUT */
+        /* FOOTER */
         footer {
             background-color: var(--background);
             padding: 4rem 0 1.5rem;
@@ -548,6 +747,7 @@
             font-size: 0.9rem;
         }
 
+        /* UTILITIES */
         .bg-effect {
             position: absolute;
             border-radius: 9999px;
@@ -560,90 +760,519 @@
             background-color: var(--gray-light);
         }
 
-        .text-center { text-align: center; }
-        .max-w-3xl { max-width: 48rem; }
-        .max-w-xl { max-width: 36rem; }
-        .mx-auto { margin-left: auto; margin-right: auto; }
-        .mb-4 { margin-bottom: 1rem; }
-        .mb-6 { margin-bottom: 1.5rem; }
-        .mb-8 { margin-bottom: 2rem; }
-        .mb-16 { margin-bottom: 4rem; }
-        .mt-10 { margin-top: 2.5rem; }
-        .text-lg { font-size: 1.125rem; line-height: 1.75rem; }
-        .space-y-6 > * + * { margin-top: 1.5rem; }
-        .leading-relaxed { line-height: 1.625; }
-        .relative { position: relative; }
-        .overflow-hidden { overflow: hidden; }
-
-        .service-card h3 { color: var(--foreground); }
-        .service-card p { color: var(--foreground); margin-bottom: 1.5rem; }
-        .service-item {
-            color: var(--foreground);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-            font-weight: 500;
+        .text-center {
+            text-align: center;
         }
 
-        .service-item::before {
-            content: '✓';
-            color: var(--primary);
-            font-weight: bold;
+        .max-w-3xl {
+            max-width: 48rem;
         }
 
-        .service-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
+        .max-w-xl {
+            max-width: 36rem;
+        }
+
+        .mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-16 {
+            margin-bottom: 4rem;
+        }
+
+        .mt-10 {
+            margin-top: 2.5rem;
+        }
+
+        .text-lg {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+        }
+
+        .space-y-6>*+* {
             margin-top: 1.5rem;
         }
 
-        .service-link:hover {
-            color: var(--primary-dark);
+        .leading-relaxed {
+            line-height: 1.625;
+        }
+
+        .relative {
+            position: relative;
+        }
+
+        .overflow-hidden {
+            overflow: hidden;
+        }
+
+
+        /* ===== RESPONSIVE DESIGN - MOBILE FIRST ===== */
+
+        /* Extra Small (Mobile): 320px - 640px */
+        @media (max-width: 640px) {
+            #servicesGrid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .service-card {
+                padding: 1.25rem !important;
+                min-height: auto !important;
+            }
+
+            .service-card h3 {
+                font-size: 1rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.85rem !important;
+            }
+
+            .icon-box {
+                width: 2rem !important;
+                height: 2rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            .icon-box svg {
+                width: 1rem !important;
+                height: 1rem !important;
+            }
+
+            section {
+                padding: 3rem 0 !important;
+            }
+
+            .mb-16 {
+                margin-bottom: 2.5rem !important;
+            }
+
+            h2 {
+                font-size: 1.25rem !important;
+            }
+        }
+
+        /* Small (Tablet Portrait): 641px - 768px */
+        @media (min-width: 641px) and (max-width: 768px) {
+            #servicesGrid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1rem !important;
+            }
+
+            .service-card {
+                padding: 1rem !important;
+            }
+
+            .service-card h3 {
+                font-size: 0.9rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        /* Medium (Tablet Landscape): 769px - 1024px */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            #servicesGrid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 1rem !important;
+            }
+
+            .service-card {
+                padding: 1rem !important;
+            }
+
+            .service-card h3 {
+                font-size: 0.95rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        /* Large (Desktop): 1025px - 1440px */
+        @media (min-width: 1025px) and (max-width: 1440px) {
+            #servicesGrid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 0.75rem !important;
+            }
+
+            .service-card {
+                padding: 1rem !important;
+                min-height: auto !important;
+            }
+
+            .service-card h3 {
+                font-size: 0.95rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.8rem !important;
+            }
+        }
+
+        /* Extra Large (Wide Desktop): 1441px+ */
+        @media (min-width: 1441px) {
+            #servicesGrid {
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 1rem !important;
+            }
+
+            .service-card {
+                padding: 1.25rem !important;
+            }
+
+            .service-card h3 {
+                font-size: 1rem !important;
+            }
+
+            .service-card p {
+                font-size: 0.85rem !important;
+            }
+        }
+
+        /* OPTIMIZE MOBILE NAVIGATION */
+        @media (max-width: 768px) {
+            .mobile-nav {
+                top: 60px;
+                animation: slideDown 0.3s ease;
+            }
+
+            .mobile-nav.active {
+                display: flex;
+            }
+
+            .mobile-nav a {
+                padding: 1rem 1.25rem;
+                font-size: 0.95rem;
+            }
+
+            .mobile-nav-btn {
+                margin: 0.75rem 1.25rem;
+                font-size: 0.9rem;
+                padding: 0.75rem 1.25rem;
+            }
+
+            nav {
+                display: none !important;
+            }
+
+            .mobile-menu-btn {
+                display: flex !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-menu-btn {
+                display: none !important;
+            }
+
+            .mobile-nav {
+                display: none !important;
+            }
+
+            nav {
+                display: flex !important;
+            }
+        }
+
+        /* OPTIMIZE HERO SECTION FOR ALL DEVICES */
+        @media (max-width: 640px) {
+            .hero {
+                padding-top: 5rem;
+                padding-bottom: 3rem;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem !important;
+                line-height: 2rem !important;
+            }
+
+            .text-lg {
+                font-size: 1rem !important;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+        }
+
+        /* OPTIMIZE CARD GRIDS FOR ALL DEVICES */
+        @media (max-width: 640px) {
+            .card-grid:not(#servicesGrid) {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+            }
+
+            .premium-card {
+                padding: 1.25rem;
+            }
+
+            .icon-box {
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        /* OPTIMIZE FOOTER FOR MOBILE */
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr !important;
+            }
+
+            .footer-section {
+                padding: 1rem 0;
+            }
+
+            .footer-bottom {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* OPTIMIZE CONTACT SECTION FOR MOBILE */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .contact-box {
+                padding: 1.5rem;
+            }
+
+            .contact-value {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* OPTIMIZE ABOUT SECTION FOR MOBILE */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr !important;
+            }
+
+            .about-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* OPTIMIZE BUTTONS FOR MOBILE */
+        @media (max-width: 640px) {
+            .btn-primary,
+            .btn-outline {
+                width: 100%;
+                text-align: center;
+                padding: 0.75rem 1rem;
+            }
+
+            .button-group {
+                gap: 0.75rem;
+            }
+        }
+
+        /* TOUCH-FRIENDLY TARGETS */
+        @media (max-width: 768px) {
+            button, a[class*="btn"], .social-link {
+                min-height: 44px;
+                min-width: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .service-link {
+                padding: 0.75rem 0;
+                min-height: 44px;
+            }
+        }
+
+        /* IMPROVE READABILITY ON SMALL SCREENS */
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 1rem !important;
+            }
+
+            body {
+                line-height: 1.5;
+            }
+
+            .badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+    
+        /* MOBILE HEADER FIX - PREVENT OVERLAP */
+        @media (max-width: 767px) {
+            /* Increase header height awareness on mobile */
+            header {
+                padding: 0.5rem 0;
+            }
+
+            /* Add top spacing to body to prevent header overlap */
+            body::before {
+                content: '';
+                display: block;
+                height: 0;
+            }
+
+            /* Hero section needs extra top padding on mobile for header clearance */
+            .hero {
+                padding-top: 5.5rem !important;
+                padding-bottom: 2.5rem !important;
+            }
+
+            /* Ensure all sections have proper spacing on mobile */
+            section {
+                padding: 3rem 0 !important;
+            }
+
+            /* Improve mobile nav positioning */
+            .mobile-nav {
+                top: 55px !important;
+                max-height: calc(100vh - 55px);
+                overflow-y: auto;
+            }
+
+            /* Fix "Marketing Expert for 5+ Years" visibility */
+            h1, .hero h1, .hero-content h1 {
+                margin-top: 0.5rem;
+                padding-top: 0.5rem;
+            }
+
+            .badge, .hero-badge {
+                display: block !important;
+                margin-bottom: 0.75rem !important;
+                font-size: 0.75rem !important;
+                opacity: 1 !important;
+            }
+
+            /* Ensure hero text is not hidden */
+            .hero-content {
+                display: block;
+                width: 100%;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            /* Better text hierarchy on mobile */
+            .text-xl {
+                font-size: 1.125rem !important;
+            }
+
+            .text-lg {
+                font-size: 0.95rem !important;
+            }
+        }
+
+        /* FURTHER MOBILE REFINEMENTS FOR SMALL PHONES */
+        @media (max-width: 480px) {
+            header {
+                padding: 0.4rem 0;
+            }
+
+            .hero {
+                padding-top: 5rem !important;
+                padding-bottom: 2rem !important;
+            }
+
+            h1 {
+                font-size: 1.35rem !important;
+                line-height: 1.6 !important;
+            }
+
+            .badge {
+                font-size: 0.65rem !important;
+                padding: 0.35rem 0.7rem !important;
+            }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
         <div class="container">
             <div class="logo">
-                <a href="#"><img src="MonkyReach-Header-Logo.avif" alt="A&C" style="height: 1.75rem; width: auto;"></a>
+                <a href="#"><img src="MonkyReach-Header-Logo.avif" alt="A&C"></a>
             </div>
+
             <nav>
                 <a href="#">Home</a>
-                <a href="#services">Services</a>
-                <a href="#tools">Tools</a>
-                <a href="#blog">Blog</a>
-                <a href="#case-studies">Case Studies</a>
+                <a href="#SEM">SEM</a>
+                <a href="#SMM">SMM</a>
+                <a href="#about">About us</a>
+                <a href="#expertise">Our Expertise</a>
                 <div class="gradient-border">
                     <div>
                         <a href="#contact" class="btn-primary">Get Started</a>
                     </div>
                 </div>
             </nav>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Mobile Nav -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#">Home</a>
+        <a href="#SEM">SEM</a>
+        <a href="#SMM">SMM</a>
+        <a href="#about">About us</a>
+        <a href="#case-studies">Case Studies</a>
+        <a href="#contact" class="mobile-nav-btn">Get Started</a>
+    </div>
+
+    <!-- Hero -->
     <section class="hero">
-        <div class="bg-effect" style="top: 0; right: 0; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);"></div>
-        <div class="bg-effect" style="bottom: 0; left: 0; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);"></div>
+        <div class="bg-effect"
+            style="top: 0; right: 0; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);">
+        </div>
+        <div class="bg-effect"
+            style="bottom: 0; left: 0; width: 50%; height: 50%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);">
+        </div>
         <div class="container">
             <div class="hero-grid">
                 <div>
-                    <div class="badge">Programmatic SEO Experts</div>
+                    <div class="badge">Marketing Expert for 5+ Years</div>
                     <h1>
-                        <span class="gradient-text">MonkeyRech:</span><br>
-                        <span>Programmatic SEO for Growth-Driven Businesses</span>
+                        <span class="gradient-text">MonkeyReach :</span><br>
+                        <span>Reach Your Niche Like a Monkey.
+                        </span>
                     </h1>
                     <p class="text-lg mb-8 max-w-xl" style="margin-top: 1.5rem;">
-                        MonkeyReach helps small businesses, and corporations integrate SEO into their organic growth strategy with no-code automation tools.
+                        Take Your Business From <b>Local Streets</b> to the <b>Global Search Bar.</b> The #1 <b>SEO, SMO
+                            &
+                            Ad Marketing</b> for retailers, small business, brands, service providers & more.
                     </p>
                     <div class="button-group">
                         <div class="gradient-border">
@@ -657,7 +1286,8 @@
                 <div>
                     <div class="gradient-border" style="padding: 2px;">
                         <div style="padding: 1.5rem; background-color: var(--card-bg); border-radius: 0.75rem;">
-                            <img src="MonkeyReach-Hero-Image-final.avif" alt="Programmatic SEO Dashboard" style="width: 100%; border-radius: 0.5rem; aspect-ratio: 1/1;">
+                            <img src="MonkeyReach-Hero-Image-final.avif" alt="Programmatic SEO Dashboard"
+                                style="width: 100%; border-radius: 0.5rem; aspect-ratio: 1/1;">
                         </div>
                     </div>
                 </div>
@@ -665,187 +1295,353 @@
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section class="bg-gray-section">
+    <!-- Search Engine Marketing-->
+    <section id="SEM" class="bg-gray-section">
         <div class="container">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <div class="badge">Why Choose Us</div>
-                <h2 class="mb-6">Why Choose MonkeyReach SEO?</h2>
-                <p class="text-lg">Scale your organic traffic with data-driven content that targets thousands of high-intent keywords.</p>
+                <div class="badge">Our Services</div>
+                <h2 class="mb-6">Search Engine Marketing (SEM)</h2>
+                <p class="text-lg">Get found on Google the moment customers search for you.</p>
             </div>
+
             <div class="card-grid">
                 <div class="premium-card">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Exponential Content Scaling</h3>
-                    <p>Deploy thousands of hyper-targeted pages that capture long-tail keywords with precision and authority.</p>
+                    <h3 style="margin-bottom: 1rem;">Local SEO</h3>
+                    <p>We optimize your Google Business listing so your store appears in “near me” searches and Google
+                        Maps results.</p>
                 </div>
+
                 <div class="premium-card">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">AI-Powered Automation</h3>
-                    <p>Leverage enterprise-grade AI to generate consistently high-quality content at unprecedented scale.</p>
+                    <h3 style="margin-bottom: 1rem;">On-Page SEO Optimization</h3>
+                    <p>We fine-tune your website — from titles to content and speed — to help Google understand and rank
+                        your pages higher.</p>
                 </div>
+
                 <div class="premium-card">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Search Intent Mapping</h3>
-                    <p>Capture every variation of user intent with content perfectly matched to search queries.</p>
+                    <h3 style="margin-bottom: 1rem;">Keyword & Competitor Analysis</h3>
+                    <p>We find exactly what your customers are searching for and what your competitors are missing — so
+                        you can outrank them.</p>
                 </div>
+
                 <div class="premium-card">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Conversion-Focused Architecture</h3>
-                    <p>Every page is engineered to convert visitors with strategic CTAs and conversion paths.</p>
+                    <h3 style="margin-bottom: 1rem;">Content Marketing & Blogging</h3>
+                    <p>We create SEO-friendly blogs and service pages that answer real customer questions and drive
+                        consistent organic traffic.</p>
                 </div>
+
                 <div class="premium-card">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Algorithm-Proof Strategy</h3>
-                    <p>Future-proof your SEO with content that adheres to Google's E-E-A-T principles.</p>
+                    <h3 style="margin-bottom: 1rem;">Google Ads (Search & Display)</h3>
+                    <p>Gain instant visibility with targeted ads that show when people search for your product or
+                        service — and pay only when they click.</p>
                 </div>
+
                 <div class="premium-card">
                     <div class="icon-box">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <h3 style="margin-bottom: 1rem;">Performance Optimization</h3>
-                    <p>Enterprise-grade templates optimized for Core Web Vitals and technical SEO excellence.</p>
+                    <h3 style="margin-bottom: 1rem;">Performance Tracking & Reporting</h3>
+                    <p>We track rankings, ad performance, and conversions — turning data into insights you can
+                        understand and act on.</p>
                 </div>
+            </div>
+            <br>
+            <br>
+            <div class="text-center mt-12">
+                <p class="text-lg font-semibold"> <i>Goal: Bring your business to the top of Google — both organically
+                        and through paid campaigns.</i></p>
+            </div>
+        </div>
+    </section>
+    <hr>
+    <!-- Social Media Marketing -->
+    <section id="SMM" class="bg-gray-section">
+        <div class="container">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="badge">Our Services</div>
+                <h2 class="mb-6">Social Media Marketing (SMM)</h2>
+                <p class="text-lg">Turn your social pages into customer-generating machines.</p>
+            </div>
+
+            <div class="card-grid">
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Social Media Strategy & Planning</h3>
+                    <p>We build a month-by-month content plan so your brand stays consistent, relevant, and engaging
+                        across platforms.</p>
+                </div>
+
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Profile Setup & Optimization</h3>
+                    <p>From your Instagram bio to your Facebook page and LinkedIn profile — we optimize every detail to
+                        attract your ideal audience.</p>
+                </div>
+
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Content Creation (Posts, Reels & Stories)</h3>
+                    <p>Our creative team designs scroll-stopping visuals, captions, and videos that reflect your brand
+                        and spark conversations.</p>
+                </div>
+
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Community Engagement</h3>
+                    <p>We reply to comments, manage DMs, and keep your page alive with meaningful interactions that grow
+                        loyalty and trust.</p>
+                </div>
+
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Paid Social Media Ads</h3>
+                    <p>We run targeted Facebook, Instagram, and LinkedIn ads to drive followers, website visits, and
+                        sales from your local area.</p>
+                </div>
+
+                <div class="premium-card">
+                    <div class="icon-box">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 style="margin-bottom: 1rem;">Analytics & Monthly Reports</h3>
+                    <p>We track your performance, measure growth, and send you simple reports showing what’s working —
+                        and how much you’ve grown.</p>
+                </div>
+            </div>
+
+            <br><br>
+
+            <div class="text-center mt-12">
+                <p class="text-lg font-semibold">
+                    <i>Goal: Build a loyal following, increase visibility, and turn engagement into real business.</i>
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
+
+    <!-- About -->
     <section id="about" class="relative overflow-hidden">
-        <div class="bg-effect" style="top: 0; right: 0; width: 33%; height: 33%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);"></div>
-        <div class="bg-effect" style="bottom: 0; left: 0; width: 33%; height: 33%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);"></div>
+        <div class="bg-effect"
+            style="top: 0; right: 0; width: 33%; height: 33%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);">
+        </div>
+        <div class="bg-effect"
+            style="bottom: 0; left: 0; width: 33%; height: 33%; background: radial-gradient(circle, rgba(255, 215, 0, 0.1), transparent);">
+        </div>
 
         <div class="container">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <div class="badge">About Us</div>
                 <h2 class="mb-6">The Story Behind <span class="gradient-text">MonkeyReach</span></h2>
-                <p class="text-lg mb-8">From blogger to web developer, our journey in creating innovative solutions for programmatic SEO.</p>
             </div>
 
             <div class="about-grid">
                 <div>
                     <div class="about-card">
                         <div style="position: relative; z-index: 1;">
-                            <h3 class="mb-4" style="font-size: 1.5rem; color: var(--foreground);">Sahil Raajput</h3>
+                            <h3 class="mb-4" style="font-size: 1.5rem; color: var(--foreground);">Abhishek Sood</h3>
                             <div class="space-y-6">
-                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">I'm Sahil Raajput, the mind behind MonkeyReach. As a Local SEO and Lead Generation expert, I specialize in building scalable websites, programmatic SEO strategies, and AI-powered automation that drive real results.</p>
-                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">After years in content creation and SEO, I identified a gap for no-code automation tools specifically designed for bloggers and small business owners looking to implement programmatic SEO strategies.</p>
-                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">If you're ready to leverage automation and AI to scale your business, subscribe to MonkeyReach and be part of a community that thrives on efficiency and innovation!</p>
+                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">I'm Abhishek Sood,
+                                    the mind behind Automate & Chill. As a Local SEO and Lead Generation expert, I
+                                    specialize in building scalable websites, programmatic SEO strategies, and
+                                    AI-powered automation that drive real results.</p>
+                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">After years in
+                                    content creation and SEO, I identified a gap for no-code automation tools
+                                    specifically designed for bloggers and small business owners.</p>
+                                <p class="text-lg leading-relaxed" style="color: var(--foreground);">If you're ready to
+                                    leverage automation and AI to scale your business, subscribe to Automate & Chill and
+                                    be part of a community that thrives on efficiency and innovation!</p>
                             </div>
                             <div class="mt-10">
-                                <h4 style="color: var(--gray); font-size: 0.875rem; font-weight: 500; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">CONNECT WITH Sahil</h4>
+                                <h4
+                                    style="color: var(--gray); font-size: 0.875rem; font-weight: 500; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 0.05em;">
+                                    CONNECT WITH ABHISHEK</h4>
                                 <div class="social-links">
-                                    <a href="https://facebook.com" class="social-link" aria-label="Facebook" title="Facebook">f</a>
-                                    <a href="https://twitter.com" class="social-link" aria-label="Twitter" title="Twitter">𝕏</a>
-                                    <a href="https://linkedin.com" class="social-link" aria-label="LinkedIn" title="LinkedIn">in</a>
-                                    <a href="https://github.com" class="social-link" aria-label="GitHub" title="GitHub">⚡</a>
-                                    <a href="https://youtube.com" class="social-link" aria-label="YouTube" title="YouTube">▶</a>
-                                    <a href="https://instagram.com" class="social-link" aria-label="Instagram" title="Instagram">📷</a>
+                                    <a href="https://facebook.com" class="social-link">f</a>
+                                    <a href="https://twitter.com" class="social-link">𝕏</a>
+                                    <a href="https://linkedin.com" class="social-link">in</a>
+                                    <a href="https://github.com" class="social-link">⚡</a>
+                                    <a href="https://youtube.com" class="social-link">▶</a>
+                                    <a href="https://instagram.com" class="social-link">📷</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <img loading="lazy" src="Sahil Raajput.avif" alt="Sahil Raajput" style="width: 100%; border-radius: 0.75rem; box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); aspect-ratio: 1/1;">
+                    <div>
+                        <div class="gradient-border" style="padding: 2px;">
+                            <div style="padding: 1.5rem; background-color: var(--card-bg); border-radius: 0.75rem;">
+                                <img src="Sahil Raajput.avif" alt="Programmatic SEO Dashboard"
+                                    style="width: 100%; border-radius: 0.5rem; aspect-ratio: 1/1;">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
+    <!-- Services -->
     <section id="services" class="bg-gray-section">
-        <div class="container">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+        <div id="expertise" class="container">
+            <div class="text-center max-w-3xl mx-auto mb-12">
                 <div class="badge">Our Services</div>
-                <h2 class="mb-6">Our Experience & Expertise</h2>
-                <p class="text-lg">We help businesses of all sizes implement programmatic SEO strategies that drive organic growth.</p>
+                <h2 class="mb-4">How MonkeyReach SEM & SMM Works?</h2>
+                <p class="text-lg" style="font-size: 0.95rem;">We maximize marketing impact with four powerful growth stages — Awareness, Engagement, Conversion, and Retention.</p>
             </div>
-            <div class="card-grid">
-                <div class="service-card">
-                    <div class="icon-box">
+
+            <div class="card-grid" style="display: grid; gap: 0.75rem;" id="servicesGrid">
+                <!-- Awareness Marketing -->
+                <div class="service-card" style="padding: 1rem; min-height: auto;">
+                    <div class="icon-box" style="margin-bottom: 0.75rem; width: 2.5rem; height: 2.5rem;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
-                    <h3 class="mb-4">For Content Publishers</h3>
-                    <p class="mb-4">Scale your content production exponentially with our enterprise-grade automation platform.</p>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <div class="service-item">Automated content generation at scale</div>
-                        <div class="service-item">Data-driven keyword research</div>
-                        <div class="service-item">Content optimization for search intent</div>
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Awareness Marketing</h3>
+                    <p style="font-size: 0.8rem; margin-bottom: 0.75rem; line-height: 1.3;">Goal: More people see your business and recognize your brand.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <div class="service-item" style="font-size: 0.8rem;">✓ SEO</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Google Ads</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Social Ads</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Local SEO</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Brand Setup</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Web Relations</div>
                     </div>
-                    <a href="#" class="service-link">Scale Your Content →</a>
                 </div>
-                <div class="service-card">
-                    <div class="icon-box">
+
+                <!-- Engagement Marketing -->
+                <div class="service-card" style="padding: 1rem; min-height: auto;">
+                    <div class="icon-box" style="margin-bottom: 0.75rem; width: 2.5rem; height: 2.5rem;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.856-1.487M15 10a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                     </div>
-                    <h3 class="mb-4">For Multi-Location Businesses</h3>
-                    <p class="mb-4">Dominate local search with our geo-targeted programmatic SEO solution.</p>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <div class="service-item">Location-specific landing pages</div>
-                        <div class="service-item">Local keyword optimization</div>
-                        <div class="service-item">Google Business Profile integration</div>
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Engagement Marketing</h3>
+                    <p style="font-size: 0.8rem; margin-bottom: 0.75rem; line-height: 1.3;">Goal: Build interaction and connection with audience online.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Content Strategy</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Creative Design</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Community Mgmt</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Influencers</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Hashtag Trends</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Contests</div>
                     </div>
-                    <a href="#" class="service-link">Dominate Local Search →</a>
                 </div>
-                <div class="service-card">
-                    <div class="icon-box">
+
+                <!-- Conversion Marketing -->
+                <div class="service-card" style="padding: 1rem; min-height: auto;">
+                    <div class="icon-box" style="margin-bottom: 0.75rem; width: 2.5rem; height: 2.5rem;">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
-                    <h3 class="mb-4">For Enterprise Corporations</h3>
-                    <p class="mb-4">Implement cross-department programmatic SEO strategies with our enterprise platform.</p>
-                    <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1.5rem;">
-                        <div class="service-item">Cross-domain content strategy</div>
-                        <div class="service-item">Enterprise-level analytics</div>
-                        <div class="service-item">Custom integration capabilities</div>
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Conversion Marketing</h3>
+                    <p style="font-size: 0.8rem; margin-bottom: 0.75rem; line-height: 1.3;">Goal: Turn visitors into paying customers. Convert clicks into leads.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Landing Pages</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Sales Funnel</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Email Marketing</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Retargeting</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ A/B Testing</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Lead Forms</div>
                     </div>
-                    <a href="#" class="service-link">Enterprise Solutions →</a>
+                </div>
+
+                <!-- Retention & Growth Marketing -->
+                <div class="service-card" style="padding: 1rem; min-height: auto;">
+                    <div class="icon-box" style="margin-bottom: 0.75rem; width: 2.5rem; height: 2.5rem;">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    </div>
+                    <h3 style="font-size: 0.95rem; margin-bottom: 0.5rem;">Retention & Growth</h3>
+                    <p style="font-size: 0.8rem; margin-bottom: 0.75rem; line-height: 1.3;">Goal: Keep customers returning. Repeat business and growth.</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.25rem;">
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Retention Campaigns</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Loyalty Programs</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Newsletters</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Reputation Mgmt</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Analytics</div>
+                        <div class="service-item" style="font-size: 0.8rem;">✓ Upselling</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact">
         <div class="container">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <div class="badge">Contact Us</div>
                 <h2 class="mb-6">Get in Touch</h2>
-                <p class="text-lg">Have questions about our programmatic SEO services? Ready to scale your content strategy? Let's talk!</p>
+                <p class="text-lg">Have questions? Let's talk!</p>
             </div>
             <div class="contact-grid">
                 <div class="contact-box">
                     <h3 class="mb-8">Contact Information</h3>
-                    <p class="contact-message">Connect with us directly using the information below. We're here to help you scale your SEO strategy.</p>
+                    <p class="contact-message">Connect with us directly using the information below.</p>
 
                     <div class="contact-item">
                         <div class="contact-label">Email</div>
@@ -854,17 +1650,19 @@
 
                     <div class="contact-item">
                         <div class="contact-label">Phone</div>
-                        <a href="tel:+919896056579" class="contact-value">+91 98960 56579</a>
+                        <a href="tel:+919896056579" class="contact-value">+91 90535 56090</a>
                     </div>
                 </div>
 
                 <div class="contact-box">
                     <h3 class="mb-8">Additional Information</h3>
-                    <p class="contact-message">We're a team of programmatic SEO experts dedicated to helping businesses automate their growth strategy and scale organic traffic efficiently.</p>
+                    <p class="contact-message">We're a team of highly enthusiastic marketer, & creators dedicated to
+                        helping businesses
+                        propel their growth strategy with top-rated SEO, SEM, SMO, SMM, Ad & Marketing Services.</p>
 
                     <div class="contact-item">
                         <div class="contact-label">Website</div>
-                        <a href="https://www.monkeyreach.com" class="contact-value">www.monkeyreach.com</a>
+                        <a href="https://www.monkeyreach.com" class="contact-value">MonkeyReach.com</a>
                     </div>
                 </div>
             </div>
@@ -877,13 +1675,14 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <div class="footer-brand-logo">
-                        <img src="Monkey-Reach-Site-Icon.avif" alt="A&C" style="height: 2rem; width: auto;">
+                        <img src="Monkey-Reach-Site-Icon.avif" alt="A&C">
                         <div>
                             <div class="footer-brand-title">MonkeyReach</div>
                             <div class="footer-brand-subtitle">Reach Your Niche Like a Monkey</div>
                         </div>
                     </div>
-                    <p>Helping bloggers, small businesses, and corporations integrate programmatic SEO into their organic growth strategy.</p>
+                    <p>Helping small businesses, brands, retailers, corporations leverage the fullest potential of
+                        modern cutting-edge marketing & ROI-focusedsolutions.</p>
                 </div>
 
                 <div class="footer-section">
@@ -904,35 +1703,47 @@
                         <a href="mailto:contact@monkeyreach.com">contact@monkeyreach.com</a>
                     </div>
                     <div class="footer-contact-item">
-                        <span class="footer-contact-icon">🌐</span>
-                        <a href="https:www.monkeyreach.com">monkeyreach.com</a>
+                        <span class="footer-contact-icon">✉</span>
+                        <a href="https://www.monkeyreach.com">MonkeyReach.com</a>
                     </div>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <p>© 2025 MonkeyReach.com by Sahil Raajput. All rights reserved.</p>
+                <p>© 2025 MonkeyReach by Sahil Raajput. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+
+        mobileMenuBtn.addEventListener('click', function () {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+
+        const mobileNavLinks = mobileNav.querySelectorAll('a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Header Scroll
         const header = document.querySelector('header');
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrollTop = window.scrollY || document.documentElement.scrollTop;
             if (scrollTop > 100) {
-                header.classList.remove('at-top');
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
-                header.classList.add('at-top');
             }
         });
-        if (window.scrollY > 100) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.add('at-top');
-        }
     </script>
 </body>
+
 </html>
